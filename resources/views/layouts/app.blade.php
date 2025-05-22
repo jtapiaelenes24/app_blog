@@ -15,6 +15,8 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <link rel="stylesheet" href="{{ asset('vendor/css/font-awesome.min.css') }}">
+
     <!-- Styles -->
     @livewireStyles
 </head>

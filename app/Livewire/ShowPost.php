@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Post;
 
 class ShowPost extends Component
 {
@@ -11,6 +12,9 @@ class ShowPost extends Component
 
     public function render()
     {
-        return view('livewire.show-post');
+
+        $posts = Post::all();
+
+        return view('livewire.show-post', compact('posts'));
     }
 }
