@@ -14,16 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        Storage::deleteDirectory('img');
-        Storage::makeDirectory('img');
+        Storage::disk('public')->deleteDirectory('img');
+        Storage::disk('public')->makeDirectory('img');
 
         Post::factory(10)->create();
+
+        // Verificar imágenes creadas
+        $images = Storage::disk('public')->allFiles('img');
+        $this->command->info(count($images) . ' imágenes fueron creadas en storage/app/public/img/');
     }
 }
