@@ -26,7 +26,7 @@
                         <p class="text-left ,y-2 text-gray-500">
                             {{ $post->extracto }}
                         </p>
-                        <button
+                        <button wire:click="single({{ $post }})"
                             class="mx-auto text-center text-gray-700 rounded-3xl p-1 block bg-gray-400 w-32 hover:bg-gray-500 hover:underline hover:text-gray-900 transition duration-150 hover:ease-in ">
                             Saber más
                         </button>
@@ -46,5 +46,30 @@
             {{ $posts->links() }}
         </div>
     @endif
+
+    {{-- MODAL --}}
+    <x-dialog-modal wire:model="open">
+        <x-slot name="title">
+            <div class="mb-2">
+                Post número: {{ $article->id }}
+            </div>
+            <span class="text-gray-400">
+                <span class="text-red-400">{{ $article->titulo }}</span>
+            </span>
+        </x-slot>
+
+        <x-slot name="content">
+            Descripción
+            <div class="text-slate-400">
+                {{ $article->descripcion }}
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-danger-button wire:click="set('open', false)">
+                Cerrar ventana
+            </x-danger-button>
+        </x-slot>
+    </x-dialog-modal>
 
 </div>

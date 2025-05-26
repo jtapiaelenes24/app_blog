@@ -46,7 +46,7 @@
                             <?php echo e($post->extracto); ?>
 
                         </p>
-                        <button
+                        <button wire:click="single(<?php echo e($post); ?>)"
                             class="mx-auto text-center text-gray-700 rounded-3xl p-1 block bg-gray-400 w-32 hover:bg-gray-500 hover:underline hover:text-gray-900 transition duration-150 hover:ease-in ">
                             Saber más
                         </button>
@@ -67,6 +67,69 @@
 
         </div>
     <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+    
+    <?php if (isset($component)) { $__componentOriginal49bd1c1dd878e22e0fb84faabf295a3f = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal49bd1c1dd878e22e0fb84faabf295a3f = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dialog-modal','data' => ['wire:model' => 'open']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('dialog-modal'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['wire:model' => 'open']); ?>
+         <?php $__env->slot('title', null, []); ?> 
+            <div class="mb-2">
+                Post número: <?php echo e($article->id); ?>
+
+            </div>
+            <span class="text-gray-400">
+                <span class="text-red-400"><?php echo e($article->titulo); ?></span>
+            </span>
+         <?php $__env->endSlot(); ?>
+
+         <?php $__env->slot('content', null, []); ?> 
+            Descripción
+            <div class="text-slate-400">
+                <?php echo e($article->descripcion); ?>
+
+            </div>
+         <?php $__env->endSlot(); ?>
+
+         <?php $__env->slot('footer', null, []); ?> 
+            <?php if (isset($component)) { $__componentOriginal656e8c5ea4d9a4fa173298297bfe3f11 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal656e8c5ea4d9a4fa173298297bfe3f11 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.danger-button','data' => ['wire:click' => 'set(\'open\', false)']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('danger-button'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['wire:click' => 'set(\'open\', false)']); ?>
+                Cerrar ventana
+             <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal656e8c5ea4d9a4fa173298297bfe3f11)): ?>
+<?php $attributes = $__attributesOriginal656e8c5ea4d9a4fa173298297bfe3f11; ?>
+<?php unset($__attributesOriginal656e8c5ea4d9a4fa173298297bfe3f11); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal656e8c5ea4d9a4fa173298297bfe3f11)): ?>
+<?php $component = $__componentOriginal656e8c5ea4d9a4fa173298297bfe3f11; ?>
+<?php unset($__componentOriginal656e8c5ea4d9a4fa173298297bfe3f11); ?>
+<?php endif; ?>
+         <?php $__env->endSlot(); ?>
+     <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal49bd1c1dd878e22e0fb84faabf295a3f)): ?>
+<?php $attributes = $__attributesOriginal49bd1c1dd878e22e0fb84faabf295a3f; ?>
+<?php unset($__attributesOriginal49bd1c1dd878e22e0fb84faabf295a3f); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal49bd1c1dd878e22e0fb84faabf295a3f)): ?>
+<?php $component = $__componentOriginal49bd1c1dd878e22e0fb84faabf295a3f; ?>
+<?php unset($__componentOriginal49bd1c1dd878e22e0fb84faabf295a3f); ?>
+<?php endif; ?>
 
 </div>
 <?php /**PATH C:\wamp64\www\curso_laravel\jetstream\app_blog\resources\views/livewire/show-post.blade.php ENDPATH**/ ?>

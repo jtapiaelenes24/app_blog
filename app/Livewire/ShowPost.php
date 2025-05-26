@@ -10,8 +10,23 @@ class ShowPost extends Component
 {
     use WithPagination;
 
+    public $article;
     public $search = '';
     protected $queryString = ['search']; // Para mantener el estado en la URL
+
+    public $open = false;
+
+    public function mount()
+    {
+        $this->article = new Post;
+    }
+
+    public function single(Post $articulo)
+    {
+        $this->article = $articulo;
+        $this->open = true;
+    }
+
 
     public function updatingSearch()
     {
