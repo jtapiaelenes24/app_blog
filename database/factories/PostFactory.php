@@ -43,7 +43,7 @@ class PostFactory extends Factory
 
             // Creamos los datos ficticios
             'titulo' => $name,
-            // 'slug' => Str::slug($name, '-'),
+            'slug' => Str::slug($name, '-'),
             'fecha' => now(),
             'extracto' => $this->faker->text(),
             'descripcion' => $this->faker->text(),

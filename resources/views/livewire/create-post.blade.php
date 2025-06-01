@@ -11,11 +11,12 @@
 
         <x-slot name="content">
             <x-label value="Título" class="text-lg mb-2 cursor-pointer" for="titulo" />
-            <input wire:model.defer="titulo" type="text" class="w-full p-2 mb-2 border" id="titulo">
+            <input wire:model.defer="titulo" wire:keyup="AutoSlug" type="text" class="w-full p-2 mb-2 border"
+                id="titulo">
             <x-input-error for="titulo" class="mb-2" />
 
             <x-label value="Slug" class="text-lg mb-2 cursor-pointer" />
-            <input type="text" class="w-full p-2 mb-2 border" readonly>
+            <input wire:model="slug" type="text" class="w-full p-2 mb-2 border" readonly>
 
             <x-label value="Extracto" class="text-lg mb-2 cursor-pointer" for="extracto" />
             <input wire:model.defer="extracto" type="text" class="w-full p-2 mb-2 border" id="extracto">
@@ -46,7 +47,7 @@
             </x-danger-button>
 
             <x-button class="mr-2 disable:opacity-25" wire:click="save" wire:loading.attr="disable"
-                wire:target="imagen">
+                wire:target="imagen,save">
                 Grabar
             </x-button>
 

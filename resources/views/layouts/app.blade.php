@@ -16,6 +16,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="{{ asset('vendor/css/font-awesome.min.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Styles -->
     @livewireStyles
@@ -45,6 +46,16 @@
     @stack('modals')
 
     @livewireScripts
+
+    @stack('js')
+
+    <script>
+        Livewire.on('alert', function(message) {
+            Swal.fire(
+                message
+            )
+        })
+    </script>
 </body>
 
 </html>

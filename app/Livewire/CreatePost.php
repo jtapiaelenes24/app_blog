@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 class CreatePost extends Component
 {
@@ -13,7 +14,7 @@ class CreatePost extends Component
 
     public $open = false;
 
-    public $titulo, $extracto, $descripcion, $imagen;
+    public $titulo, $extracto, $descripcion, $slug, $imagen;
 
     protected $rules = [
         'titulo' => 'required',
@@ -29,6 +30,11 @@ class CreatePost extends Component
         'imagen' => 'Debe de seleccionar una imagen'
     ];
 
+    public function AutoSlug()
+    {
+        $this->slug = Str::slug($this->titulo);
+    }
+
     public function save()
     {
 
@@ -38,6 +44,7 @@ class CreatePost extends Component
 
         Post::create([
             'titulo' => $this->titulo,
+            'slug' => $this->slug,
             'extracto' => $this->extracto,
             'descripcion' => $this->descripcion,
             'imagen' => $imagenPath,
@@ -47,12 +54,13 @@ class CreatePost extends Component
         $this->dispatch('post-created');
         // Resetear los campos después de guardar
         $this->reset(['open']);
+        // $this->emit('alert', 'Post guardado con éxito');
     }
 
     public function updatingOpen()
     {
         if ($this->open == false) {
-            $this->reset(['titulo', 'extracto', 'descripcion', 'imagen']);
+            $this->reset(['titulo', 'slug', 'extracto', 'descripcion', 'imagen']);
             $this->resetValidation();
         }
     }

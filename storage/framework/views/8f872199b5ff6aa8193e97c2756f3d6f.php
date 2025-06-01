@@ -57,7 +57,8 @@
 <?php $component = $__componentOriginald8ba2b4c22a13c55321e34443c386276; ?>
 <?php unset($__componentOriginald8ba2b4c22a13c55321e34443c386276); ?>
 <?php endif; ?>
-            <input wire:model.defer="titulo" type="text" class="w-full p-2 mb-2 border" id="titulo">
+            <input wire:model.defer="titulo" wire:keyup="AutoSlug" type="text" class="w-full p-2 mb-2 border"
+                id="titulo">
             <?php if (isset($component)) { $__componentOriginalf94ed9c5393ef72725d159fe01139746 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf94ed9c5393ef72725d159fe01139746 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-error','data' => ['for' => 'titulo','class' => 'mb-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -99,7 +100,7 @@
 <?php $component = $__componentOriginald8ba2b4c22a13c55321e34443c386276; ?>
 <?php unset($__componentOriginald8ba2b4c22a13c55321e34443c386276); ?>
 <?php endif; ?>
-            <input type="text" class="w-full p-2 mb-2 border" readonly>
+            <input wire:model="slug" type="text" class="w-full p-2 mb-2 border" readonly>
 
             <?php if (isset($component)) { $__componentOriginald8ba2b4c22a13c55321e34443c386276 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginald8ba2b4c22a13c55321e34443c386276 = $attributes; } ?>
@@ -244,14 +245,14 @@
 
             <?php if (isset($component)) { $__componentOriginald0f1fd2689e4bb7060122a5b91fe8561 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginald0f1fd2689e4bb7060122a5b91fe8561 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.button','data' => ['class' => 'mr-2 disable:opacity-25','wire:click' => 'save','wire:loading.attr' => 'disable','wire:target' => 'imagen']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.button','data' => ['class' => 'mr-2 disable:opacity-25','wire:click' => 'save','wire:loading.attr' => 'disable','wire:target' => 'imagen,save']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'mr-2 disable:opacity-25','wire:click' => 'save','wire:loading.attr' => 'disable','wire:target' => 'imagen']); ?>
+<?php $component->withAttributes(['class' => 'mr-2 disable:opacity-25','wire:click' => 'save','wire:loading.attr' => 'disable','wire:target' => 'imagen,save']); ?>
                 Grabar
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

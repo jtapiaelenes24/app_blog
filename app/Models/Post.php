@@ -15,4 +15,9 @@ class Post extends Model
     protected $casts = [
         'fecha' => 'datetime',
     ];
+
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 }

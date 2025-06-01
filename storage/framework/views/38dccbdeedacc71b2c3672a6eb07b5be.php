@@ -16,6 +16,7 @@
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
     <link rel="stylesheet" href="<?php echo e(asset('vendor/css/font-awesome.min.css')); ?>">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Styles -->
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::styles(); ?>
@@ -68,6 +69,16 @@
 
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::scripts(); ?>
 
+
+    <?php echo $__env->yieldPushContent('js'); ?>
+
+    <script>
+        Livewire.on('alert', function(message) {
+            Swal.fire(
+                message
+            )
+        })
+    </script>
 </body>
 
 </html>
