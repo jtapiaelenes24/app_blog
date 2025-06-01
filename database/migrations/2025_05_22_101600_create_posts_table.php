@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
 
             $table->string('titulo');
-            $table->string('slug');
-            $table->timestamp('fecha');
+            // $table->string('slug');
+            // $table->timestamp('fecha');
             $table->string('extracto');
             $table->text('descripcion');
-            $table->string('imagen');
+            // $table->string('imagen');
 
             $table->timestamps();
         });

@@ -45,12 +45,12 @@ class PostFactory extends Factory
 
             // Creamos los datos ficticios
             'titulo' => $name,
-            'slug' => Str::slug($name, '-'),
-            'fecha' => now(),
+            // 'slug' => Str::slug($name, '-'),
+            // 'fecha' => now(),
             'extracto' => $this->faker->text(),
             'descripcion' => $this->faker->text(),
             // 'imagen' => 'img/' . $imagenNombre,
-            'imagen' => $imagePath,
+            // 'imagen' => $imagePath,
 
         ];
     }
