@@ -16,10 +16,10 @@ return new class extends Migration
 
             $table->string('titulo');
             // $table->string('slug');
-            // $table->timestamp('fecha');
+            $table->timestamp('fecha');
             $table->string('extracto');
             $table->text('descripcion');
-            // $table->string('imagen');
+            $table->string('imagen');
 
             $table->timestamps();
         });

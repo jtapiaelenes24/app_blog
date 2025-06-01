@@ -25,7 +25,18 @@
             <textarea wire:model.defer="descripcion" name="descripcion" id="descripcion" class="w-full max-h-48 h-48 p-2 mb-2"></textarea>
             <x-input-error for="descripcion" class="mb-2" />
 
-            <input type="file" name="imagen" class="mb-2" id="">
+            <input wire:model="imagen" type="file" name="imagen" class="mb-2" id="">
+            <x-input-error for="imagen" class="mb-2" />
+
+            @if ($imagen)
+                <img src="{{ $imagen->temporaryUrl() }}" alt="">
+            @endif
+
+            <div class="text-center">
+                <div wire:loading wire:target="imagen" class="text-lg text-blue-500">
+                    Cargando imagen, un momento por favor
+                </div>
+            </div>
 
         </x-slot>
 
@@ -34,7 +45,8 @@
                 Cancelar
             </x-danger-button>
 
-            <x-button class="mr-2 disable:opacity-25" wire:click="save" wire:loading.attr="disable">
+            <x-button class="mr-2 disable:opacity-25" wire:click="save" wire:loading.attr="disable"
+                wire:target="imagen">
                 Grabar
             </x-button>
 

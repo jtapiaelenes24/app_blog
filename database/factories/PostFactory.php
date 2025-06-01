@@ -20,8 +20,6 @@ class PostFactory extends Factory
 
         $name = $this->faker->sentence();
 
-        // $imagenNombre = 'test_gd_image.jpg'; // Imagen fija para todos los posts
-
         // Generar nombre único para la imagen
         $imageName = 'post_' . time() . '_' . $this->faker->unique()->randomNumber(5) . '.jpg';
         $imagePath = 'img/' . $imageName;
@@ -46,11 +44,10 @@ class PostFactory extends Factory
             // Creamos los datos ficticios
             'titulo' => $name,
             // 'slug' => Str::slug($name, '-'),
-            // 'fecha' => now(),
+            'fecha' => now(),
             'extracto' => $this->faker->text(),
             'descripcion' => $this->faker->text(),
-            // 'imagen' => 'img/' . $imagenNombre,
-            // 'imagen' => $imagePath,
+            'imagen' => $imagePath,
 
         ];
     }
